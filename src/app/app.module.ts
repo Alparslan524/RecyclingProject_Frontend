@@ -11,6 +11,7 @@ import { NaviBarComponent } from './component/navi-bar/navi-bar.component';
 import { CarbonToKycComponent } from './component/carbon-to-kyc/carbon-to-kyc.component';
 import { PersonTypeComponent } from './component/person-type/person-type.component';
 import { SHA256Component } from './component/sha256/sha256.component';
+import { PersonDetailDtoComponent } from './component/person-detail-dto/person-detail-dto.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SHA256Component } from './component/sha256/sha256.component';
     NaviBarComponent,
     CarbonToKycComponent,
     PersonTypeComponent,
-    SHA256Component
+    SHA256Component,
+    PersonDetailDtoComponent
   ],
   imports: [
     BrowserModule,

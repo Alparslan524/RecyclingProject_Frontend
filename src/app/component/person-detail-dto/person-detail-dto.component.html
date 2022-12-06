@@ -1,0 +1,37 @@
+<div class="container ">
+    <div class="row">
+        <div *ngIf="dataLoaded==false" class="spinner-border text-success mx-auto" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+    </div>
+</div>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>PersonID</th>
+            <th>CustomerID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Identity Number</th>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>carbon</th>
+            <th>kyc</th>
+            <th>sha256</th>
+            <th>Person Type </th>
+        </tr>
+    </thead>
+    <tr *ngFor="let personDetail of personDetailDto">
+        <td>{{personDetail.personId}}</td>
+        <td>{{personDetail.customerId}}</td>
+        <td>{{personDetail.firstName}}</td>
+        <td>{{personDetail.lastName}}</td>
+        <td>{{personDetail.identityNumber}}</td>
+        <td>{{personDetail.userName}}</td>
+        <td>{{personDetail.password}}</td>
+        <td>{{personDetail.carbon}}</td>
+        <td>{{personDetail.kyc}}</td>
+        <td>{{personDetail.sha256}}</td>
+        <td>{{personDetail.type}}</td>
+    </tr>
+</table>
