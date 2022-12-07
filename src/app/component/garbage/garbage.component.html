@@ -11,11 +11,19 @@
             <th>TypeId</th>
             <th>Type</th>
             <th>Carbon</th>
+            <th></th>
         </tr>
     </thead>
+    <tbody>
     <tr *ngFor="let garbage of garbages">
         <td> {{garbage.typeID}}</td>
         <td> {{garbage.type}} </td>
         <td> {{garbage.carbon}} </td>
+        <td>
+            <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success"> Add to Cart </button>
+        </td>
     </tr>
+</tbody>
 </table>
+
+{{totalCarbon}}

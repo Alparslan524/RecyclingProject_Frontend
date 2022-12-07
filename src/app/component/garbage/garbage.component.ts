@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Garbage } from 'src/app/models/garbage';
 import { GarbageService } from 'src/app/services/garbage.service';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-garbage',
@@ -11,7 +13,11 @@ import { GarbageService } from 'src/app/services/garbage.service';
 export class GarbageComponent implements OnInit{
   garbages: Garbage[] = [];
   dataLoaded=false;
-  constructor(private garbageService: GarbageService) {}
+  totalCarbon:number;
+  constructor(private garbageService: GarbageService,
+    private toastrService:ToastrService,
+    private cartService:CartService
+    ) {}
 
 
   ngOnInit(): void {
@@ -24,4 +30,14 @@ export class GarbageComponent implements OnInit{
       this.dataLoaded=true;
     });
   }
+  addToCart(garbage:Garbage){ 
+      this.toastrService.success("Added to Cart",garbage.type)
+      this.cartService.addToCart(garbage);
+  }
+
+  addToCarbon(garbage:Garbage){
+    this.totalCarbon=this.cartService.addToCarbon(garbage)
+  }
+  
+ 
 }
