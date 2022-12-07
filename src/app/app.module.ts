@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import {  FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { CarbonToKycComponent } from './component/carbon-to-kyc/carbon-to-kyc.co
 import { PersonTypeComponent } from './component/person-type/person-type.component';
 import { SHA256Component } from './component/sha256/sha256.component';
 import { PersonDetailDtoComponent } from './component/person-detail-dto/person-detail-dto.component';
+import { FilterPersonPipePipe } from './pipes/filter-person-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { PersonDetailDtoComponent } from './component/person-detail-dto/person-d
     CarbonToKycComponent,
     PersonTypeComponent,
     SHA256Component,
-    PersonDetailDtoComponent
+    PersonDetailDtoComponent,
+    FilterPersonPipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

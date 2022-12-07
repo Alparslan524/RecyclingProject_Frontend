@@ -1,10 +1,17 @@
-<div class="container ">
+
+<div class="mb-3">
+    <label for="filterText" class="form-label">Search Person</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Enter the Person Name">
+  </div>
+
+  <div class="container ">
     <div class="row">
         <div *ngIf="dataLoaded==false" class="spinner-border text-success mx-auto" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
     </div>
 </div>
+
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
@@ -21,7 +28,7 @@
             <th>Person Type </th>
         </tr>
     </thead>
-    <tr *ngFor="let personDetail of personDetailDto">
+    <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
         <td>{{personDetail.personId}}</td>
         <td>{{personDetail.customerId}}</td>
         <td>{{personDetail.firstName}}</td>

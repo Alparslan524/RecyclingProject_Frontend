@@ -10,6 +10,7 @@ import { PersonDetailDtoService } from 'src/app/services/person-detail-dto.servi
 export class PersonDetailDtoComponent implements OnInit{
   personDetailDto: PersonDetailDto[]=[];
   dataLoaded=false;
+  filterText="";
   
   constructor(private personDetailDtoService:PersonDetailDtoService) {}
 
