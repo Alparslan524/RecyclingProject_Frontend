@@ -15,6 +15,8 @@ import { SHA256Component } from './component/sha256/sha256.component';
 import { PersonDetailDtoComponent } from './component/person-detail-dto/person-detail-dto.component';
 import { FilterPersonPipePipe } from './pipes/filter-person-pipe.pipe';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,10 @@ import { FilterPersonPipePipe } from './pipes/filter-person-pipe.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

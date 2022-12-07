@@ -28,17 +28,19 @@
             <th>Person Type </th>
         </tr>
     </thead>
-    <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
-        <td>{{personDetail.personId}}</td>
-        <td>{{personDetail.customerId}}</td>
-        <td>{{personDetail.firstName}}</td>
-        <td>{{personDetail.lastName}}</td>
-        <td>{{personDetail.identityNumber}}</td>
-        <td>{{personDetail.userName}}</td>
-        <td>{{personDetail.password}}</td>
-        <td>{{personDetail.carbon}}</td>
-        <td>{{personDetail.kyc}}</td>
-        <td>{{personDetail.sha256}}</td>
-        <td>{{personDetail.type}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
+            <td>{{personDetail.personId}}</td>
+            <td>{{personDetail.customerId}}</td>
+            <td>{{personDetail.firstName}}</td>
+            <td>{{personDetail.lastName}}</td>
+            <td>{{personDetail.identityNumber}}</td>
+            <td>{{personDetail.userName}}</td>
+            <td>{{personDetail.password}}</td>
+            <td>{{personDetail.carbon}}</td>
+            <td>{{personDetail.kyc}}</td>
+            <td>{{personDetail.sha256}}</td>
+            <td>{{personDetail.type}}</td>
+        </tr>
+    </tbody>
 </table>
