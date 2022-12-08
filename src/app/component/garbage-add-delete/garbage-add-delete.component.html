@@ -1,0 +1,67 @@
+<div class="container ">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">
+                    Garbage Add
+                </h5>
+            </div>
+            <div class="card-body ">
+                <form [formGroup]="garbageAddForm" action="">
+                    
+                    <label for="type"> Garbage Type </label>
+                    <div class="form-group mb-3">
+                        <input type="text" id="type" formControlName="type" 
+                        class="form-control" placeholder="Enter Garbage Type" />
+                    </div>
+                    
+                    <label for="carbon"> Carbon Value </label>
+                    <div class="form-group mb-3">
+                        <input type="number" id="carbon" formControlName="carbon" 
+                        class="form-control" placeholder="Enter Carbon Value" />
+                    </div>
+                    <button class="btn btn-fill btn-success" (click)="add()" type="reset" >Add Garbage</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container ">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">
+                    Garbage Delete
+                </h5>
+            </div>
+            <div class="card-body ">
+                <form [formGroup]="garbageDeleteForm" action="">
+                    
+                    <label for="typeID"> Type ID </label>
+                    <div class="form-group mb-3">
+                        <input type="number" id="typeID" formControlName="typeID" 
+                        class="form-control" placeholder="Enter Garbage TypeID " />
+                    </div>
+                   
+                    <label for="type"> Garbage Type </label>
+                    <div class="form-group mb-3">
+                        <input type="text" id="type" formControlName="type" 
+                        class="form-control" placeholder="Enter Garbage Type" />
+                    </div>
+
+                    <label for="carbon"> Carbon Value </label>
+                    <div class="form-group mb-3">
+                        <input type="number" id="carbon" formControlName="carbon" 
+                        class="form-control" placeholder="Enter Carbon Value" />
+                    </div>
+
+                    <button class="btn btn-fill btn-success" (click)="delete()" type="reset" >Delete Garbage</button>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

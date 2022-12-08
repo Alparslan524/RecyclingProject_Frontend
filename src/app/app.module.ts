@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {  FormsModule } from "@angular/forms";
+import {  FormsModule,ReactiveFormsModule } from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,8 @@ import { PersonDetailDtoComponent } from './component/person-detail-dto/person-d
 import { FilterPersonPipePipe } from './pipes/filter-person-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
-import { CartSummaryComponent } from './component/cart-summary/cart-summary.component';
+import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbage-add-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CartSummaryComponent } from './component/cart-summary/cart-summary.comp
     SHA256Component,
     PersonDetailDtoComponent,
     FilterPersonPipePipe,
-    CartSummaryComponent
+    GarbageAddDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +40,7 @@ import { CartSummaryComponent } from './component/cart-summary/cart-summary.comp
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })
