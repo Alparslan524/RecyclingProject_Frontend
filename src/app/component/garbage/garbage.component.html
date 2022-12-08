@@ -5,25 +5,61 @@
           </div>
     </div>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>TypeId</th>
-            <th>Type</th>
-            <th>Carbon</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let garbage of garbages">
-        <td> {{garbage.typeID}}</td>
-        <td> {{garbage.type}} </td>
-        <td> {{garbage.carbon}} </td>
-        <td>
-            <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success"> Add to Cart </button>
-        </td>
-    </tr>
-</tbody>
-</table>
 
-{{totalCarbon}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <table *ngIf="dataLoaded==true" class="table">
+                <thead>
+                    <tr>
+                        <th>TypeId</th>
+                        <th>Type</th>
+                        <th>Carbon</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let garbage of garbages">
+                    <td> {{garbage.typeID}}</td>
+                    <td> {{garbage.type}} </td>
+                    <td> {{garbage.carbon}} </td>
+                    <td>
+                        <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success"> Add to Cart </button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="col-4">
+            <table *ngIf="dataLoaded==true" class="table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cartItem of cartItems">
+                        <td> {{cartItem.garbage.type}}</td>
+                        <td> {{cartItem.quantity}} </td>
+                        <button type="button" class="btn">
+                            <span (click)="removeFromCart(cartItem.garbage)" class="badge bg-danger"> Delete </span>
+                          </button>
+                </tbody>
+                <h3>Total Carbon: {{totalCarbon}} </h3>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

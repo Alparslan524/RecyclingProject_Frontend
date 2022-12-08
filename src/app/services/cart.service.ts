@@ -27,7 +27,7 @@ export class CartService {
   removeFromCart(garbage:Garbage):number{
     let item = CartItems.find(c=>c.garbage.typeID === garbage.typeID);
     CartItems.splice(CartItems.indexOf(item),1);
-    this.totalCarbon=this.totalCarbon-item.garbage.carbon;
+    this.totalCarbon=this.totalCarbon-(item.garbage.carbon * item.quantity);
     return this.totalCarbon;
   }
 
