@@ -18,6 +18,8 @@ import { FilterPersonPipePipe } from './pipes/filter-person-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbage-add-delete.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbag
     SHA256Component,
     PersonDetailDtoComponent,
     FilterPersonPipePipe,
-    GarbageAddDeleteComponent
+    GarbageAddDeleteComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
