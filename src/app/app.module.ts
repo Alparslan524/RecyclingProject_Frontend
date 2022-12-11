@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {  FormsModule,ReactiveFormsModule } from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbage-add-delete.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -47,7 +48,9 @@ import { RegisterComponent } from './component/register/register.component';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
