@@ -23,7 +23,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminComponent } from './component/admin/admin.component';
 import { CustomerPageComponent } from './component/customer-page/customer-page.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +53,7 @@ import { CustomerPageComponent } from './component/customer-page/customer-page.c
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
