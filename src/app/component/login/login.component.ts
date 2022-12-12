@@ -53,12 +53,13 @@ export class LoginComponent implements OnInit {
         {
           this.router.navigate(["customerPage"]);
         }
-        
+
       },responseError=>{
         this.toastrService.error(responseError.error)
       })
     }
   }
 
+ 
 
 }
