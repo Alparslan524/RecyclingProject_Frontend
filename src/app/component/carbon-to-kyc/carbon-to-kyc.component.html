@@ -8,12 +8,29 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>Carbon To KYC</th>
             <th>ID</th>
+            <th>Carbon To KYC</th>
         </tr>
     </thead>
     <tr *ngFor="let carbontokyc of carbonToKyc">
-        <td>{{carbontokyc.carbontoKYC}}</td>
         <td>{{carbontokyc.id}}</td>
+        <td>{{carbontokyc.carbontoKYC}}</td>
     </tr>
 </table>
+
+<div class="card-body">
+    <form [formGroup]="carbonToKycUpdateForm" action="" *ngIf="carbonToKycUpdateForm">
+        <!-- <label for="id"> Id </label>
+        <div class="form-group mb-3">
+            <input type="number" id="id" formControlName="id" 
+            class="form-control" placeholder="Enter Id" />
+        </div> -->
+        <label for="carbontoKYC"> Carbon to KYC </label>
+        <div class="form-group mb-3">
+            <input type="number" id="carbontoKYC" formControlName="carbontoKYC" 
+            class="form-control" placeholder="Enter Carbon Value" />
+        </div>
+        <button class="btn btn-fill btn-success" (click)="update()" type="reset" >Update Value</button>
+    </form>
+</div>
+
