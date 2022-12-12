@@ -20,6 +20,8 @@ import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbag
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AdminComponent } from './component/admin/admin.component';
+import { CustomerPageComponent } from './component/customer-page/customer-page.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     FilterPersonPipePipe,
     GarbageAddDeleteComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent,
+    CustomerPageComponent
   ],
   imports: [
     BrowserModule,
