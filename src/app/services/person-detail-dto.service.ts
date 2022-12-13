@@ -8,7 +8,7 @@ import { PersonDetailDto } from '../models/personDetailDto';
   providedIn: 'root'
 })
 export class PersonDetailDtoService {
-  apiUrl="https://localhost:44342/api/persons/getpersondetail"
+  apiUrl="https://localhost:44342/api/customers/getpersonaldetails"
   constructor(private httpClient: HttpClient) { }
   
   

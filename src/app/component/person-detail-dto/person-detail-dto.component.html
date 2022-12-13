@@ -15,11 +15,11 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>PersonID</th>
+            <th>UserID</th>
             <th>CustomerID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Identity Number</th>
+            <th>Email</th>
             <th>carbon</th>
             <th>kyc</th>
             <th>sha256</th>
@@ -27,11 +27,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
-            <td>{{personDetail.personId}}</td>
+            <td> {{personDetail.userId}} </td>
             <td>{{personDetail.customerId}}</td>
             <td>{{personDetail.firstName}}</td>
             <td>{{personDetail.lastName}}</td>
-            <td>{{personDetail.identityNumber}}</td>
+            <td>{{personDetail.email}}</td>
             <td>{{personDetail.carbon}}</td>
             <td>{{personDetail.kyc}}</td>
             <td>{{personDetail.sha256}}</td>

@@ -7,7 +7,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GarbageComponent } from './component/garbage/garbage.component';
-import { PersonComponent } from './component/person/person.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { NaviBarComponent } from './component/navi-bar/navi-bar.component';
 import { CarbonToKycComponent } from './component/carbon-to-kyc/carbon-to-kyc.component';
@@ -23,11 +22,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminComponent } from './component/admin/admin.component';
 import { CustomerPageComponent } from './component/customer-page/customer-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     GarbageComponent,
-    PersonComponent,
     CustomerComponent,
     NaviBarComponent,
     CarbonToKycComponent,
@@ -38,7 +37,7 @@ import { CustomerPageComponent } from './component/customer-page/customer-page.c
     LoginComponent,
     RegisterComponent,
     AdminComponent,
-    CustomerPageComponent
+    CustomerPageComponent,
   ],
   imports: [
     BrowserModule,
