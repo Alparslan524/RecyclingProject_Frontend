@@ -12,7 +12,8 @@ export class NaviBarComponent {
   constructor(private authService:AuthService,
     private router:Router
     ) {}
-  logout(){
+    
+    logout(){
     this.authService.logout();
     this.router.navigate(["login"]);
   }
