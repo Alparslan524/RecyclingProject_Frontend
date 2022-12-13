@@ -58,6 +58,11 @@ export class LoginComponent implements OnInit {
         this.toastrService.error(responseError.error)
       })
     }
+    else
+    {
+      this.toastrService.error("Enter the Information Completely","Be careful");
+    }
+
   }
 
  

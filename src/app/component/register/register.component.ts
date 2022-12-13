@@ -46,6 +46,10 @@ export class RegisterComponent implements OnInit{
         this.toastrService.error(responseError.error)
       })
     }
+    else
+    {
+      this.toastrService.error("Enter the Information Completely","Be careful");
+    }
   }
   
   cancel(){
