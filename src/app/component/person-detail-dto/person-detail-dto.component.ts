@@ -24,4 +24,5 @@ export class PersonDetailDtoComponent implements OnInit{
       this.dataLoaded=true;
     })
   }
+  
 }

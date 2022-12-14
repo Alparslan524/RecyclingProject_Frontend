@@ -8,11 +8,16 @@ import { PersonDetailDto } from '../models/personDetailDto';
   providedIn: 'root'
 })
 export class PersonDetailDtoService {
-  apiUrl="https://localhost:44342/api/customers/getpersonaldetails"
+  apiUrl="https://localhost:44342/api/customers"
   constructor(private httpClient: HttpClient) { }
   
   
   getPersonDetail():Observable<ListResponseModel<PersonDetailDto>> {
-    return this.httpClient.get<ListResponseModel<PersonDetailDto>>(this.apiUrl);
+    return this.httpClient.get<ListResponseModel<PersonDetailDto>>(this.apiUrl+"/getpersonaldetails");
   }
+
+  getByEmail(email:string):Observable<ListResponseModel<PersonDetailDto>> {
+    return this.httpClient.get<ListResponseModel<PersonDetailDto>>(this.apiUrl + "/getbyemail"+"?email="+email);
+  }
+
 }

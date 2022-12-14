@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cartItem';
 import { CartItems } from '../models/cartItems';
+import { Customer } from '../models/customer';
 import { Garbage } from '../models/garbage';
+import { CustomerService } from './customer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import { Garbage } from '../models/garbage';
 export class CartService {
   
   totalCarbon=0;
+  newCarbon=0;
   
   constructor() { }
 
@@ -42,4 +45,9 @@ export class CartService {
   }
 
 
+  addBalance(customer:Customer){
+    this.newCarbon=this.totalCarbon+500
+    console.log(this.newCarbon)
+    //totalKarbon + eski karbon değeri veritabanına ekle
+  }
 }

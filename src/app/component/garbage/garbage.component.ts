@@ -5,6 +5,7 @@ import { GarbageService } from 'src/app/services/garbage.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cartItem';
+import { Customer } from 'src/app/models/customer';
 
 @Component({
   selector: 'app-garbage',
@@ -20,8 +21,8 @@ export class GarbageComponent implements OnInit{
     private toastrService:ToastrService,
     private cartService:CartService
     ) {}
-
-
+    customer:Customer;
+    
   ngOnInit(): void {
     this.getGarbages();
     this.getCart();
@@ -33,6 +34,7 @@ export class GarbageComponent implements OnInit{
       this.dataLoaded=true;
     });
   }
+
   addToCart(garbage:Garbage){ 
       this.toastrService.success("Added to Cart",garbage.type)
       this.cartService.addToCart(garbage);
@@ -49,8 +51,14 @@ export class GarbageComponent implements OnInit{
 
   removeFromCart(garbage:Garbage){
     this.totalCarbon=this.cartService.removeFromCart(garbage);
-    this.toastrService.warning(garbage.type+" Deleted Cart")
+    this.toastrService.warning(garbage.type + " Deleted Cart")
   }
+
+  addBalance(customer:Customer){
+    this.cartService.addBalance(customer);
+  }
+
+
 
 
 }

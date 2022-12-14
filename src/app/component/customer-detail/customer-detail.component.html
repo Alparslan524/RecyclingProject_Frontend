@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let personDetail of personDetailDto | customerPipe:filterText ">
+        <tr *ngFor="let personDetail of personDetailDto">
             <td>{{personDetail.firstName}}</td>
             <td>{{personDetail.lastName}}</td>
             <td>{{personDetail.email}}</td>

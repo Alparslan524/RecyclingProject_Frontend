@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './component/admin/admin.component';
+import { CustomerDetailComponent } from './component/customer-detail/customer-detail.component';
 import { CustomerPageComponent } from './component/customer-page/customer-page.component';
 import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbage-add-delete.component';
 import { LoginComponent } from './component/login/login.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
 {path:"login",component:LoginComponent },
 {path: "admin", component:AdminComponent},
 {path: "customerPage", component:CustomerPageComponent},
-{path: "register", component:RegisterComponent }
+{path: "register", component:RegisterComponent },
+{path: "customers/getbyemail/:email", component:CustomerDetailComponent}
 ];
 
 @NgModule({

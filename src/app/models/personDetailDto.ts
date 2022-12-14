@@ -1,6 +1,5 @@
 export interface PersonDetailDto{
     id:number;
-    personId:number;
     customerId:number;
     firstName:string;
     lastName:string;
@@ -8,4 +7,5 @@ export interface PersonDetailDto{
     carbon:number;
     kyc:number;
     sha256:string;
+    shaId:number;
 }
