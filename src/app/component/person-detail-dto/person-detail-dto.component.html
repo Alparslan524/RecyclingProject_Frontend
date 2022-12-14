@@ -27,7 +27,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
-            <td> {{personDetail.userId}} </td>
+            <td> {{personDetail.id}} </td>
             <td>{{personDetail.customerId}}</td>
             <td>{{personDetail.firstName}}</td>
             <td>{{personDetail.lastName}}</td>

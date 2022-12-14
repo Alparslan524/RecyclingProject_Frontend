@@ -1,5 +1,5 @@
 export interface PersonDetailDto{
-    userId:number;
+    id:number;
     personId:number;
     customerId:number;
     firstName:string;
