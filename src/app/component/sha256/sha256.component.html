@@ -9,13 +9,11 @@
     <thead>
         <tr>
             <th>SHA Id</th>
-            <th>Customer Id</th>
             <th>SHA256</th>
         </tr>
     </thead>
     <tr *ngFor="let sHA256 of sHA256s">
         <td>{{sHA256.shaId}}</td>
-        <td>{{sHA256.customerId}}</td>
         <td>{{sHA256.sha256}}</td>
     </tr>
 </table>

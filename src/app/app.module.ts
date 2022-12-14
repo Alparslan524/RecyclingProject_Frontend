@@ -21,6 +21,8 @@ import { RegisterComponent } from './component/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminComponent } from './component/admin/admin.component';
 import { CustomerPageComponent } from './component/customer-page/customer-page.component';
+import { CustomerDetailComponent } from './component/customer-detail/customer-detail.component';
+import { CustomerPipePipe } from './pipes/customer-pipe.pipe';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { CustomerPageComponent } from './component/customer-page/customer-page.c
     RegisterComponent,
     AdminComponent,
     CustomerPageComponent,
+    CustomerDetailComponent,
+    CustomerPipePipe,
   ],
   imports: [
     BrowserModule,

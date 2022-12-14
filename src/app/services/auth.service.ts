@@ -35,13 +35,10 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
   }
   
-  // emailgetirme(loginModel:LoginModel){
-  //   let token=localStorage.getItem("token");
-  //   let tokenEmail=this.helper.decodeToken(token);
-  //   if(tokenEmail["email"]===loginModel.email)
-  //   {
-  //     console.log("listele")
-  //   }
-  // }
+  getEmail(){
+    let token=localStorage.getItem("token");
+    let tokenEmail=this.helper.decodeToken(token);
+    return tokenEmail["email"];
+  }
 
 }
