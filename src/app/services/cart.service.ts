@@ -16,6 +16,7 @@ export class CartService {
   personDetailDto: PersonDetailDto[]=[];
   totalCarbon=0;
   emailNow=this.authService.getEmail();
+
   
   
   constructor(private authService:AuthService,
@@ -50,17 +51,4 @@ export class CartService {
     this.totalCarbon=this.totalCarbon+item.garbage.carbon;
     return this.totalCarbon;
   }
-
-
-  addBalance(carbonValue:number){
-    this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
-      this.personDetailDto=response.data;
-      this.person=this.personDetailDto[0]
-      //carbon değeri CarbonValue----CustomerIdsi person.customerId olana adama gönderilecek----backendde yapılabilir
-      
-    })
-  }
-
-  
-
 }

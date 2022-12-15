@@ -9,6 +9,7 @@ import { Customer } from 'src/app/models/customer';
 import { PersonDetailDto } from 'src/app/models/personDetailDto';
 import { AuthService } from 'src/app/services/auth.service';
 import { PersonDetailDtoService } from 'src/app/services/person-detail-dto.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-garbage',
@@ -24,12 +25,16 @@ export class GarbageComponent implements OnInit{
   person:PersonDetailDto;
   emailNow=this.authService.getEmail();
 
+  sayi1=0;
+  sayi2=0;
+
   
   constructor(private garbageService: GarbageService,
     private toastrService:ToastrService,
     private cartService:CartService,
     private authService:AuthService,
-    private personDetailDtoService:PersonDetailDtoService
+    private personDetailDtoService:PersonDetailDtoService,
+    private customerService:CustomerService
     ) {}
     customer:Customer;
     
@@ -73,10 +78,31 @@ export class GarbageComponent implements OnInit{
     this.person=this.personDetailDto[0]
     
     this.person.carbon=this.person.carbon+this.totalCarbon
-    this.cartService.addBalance(this.person.carbon)
+
+    this.update();
+    
+    
+    //this.sayi1=this.person.carbon
+      //this.sayi2=this.person.customerId
+      //this.customerService.updateById(this.sayi1, this.sayi2)
   })
+  
   }
 
+
+  update(){
+  let customer1:Customer={
+    customerId:this.person.customerId,
+    carbon:this.person.carbon,
+    kyc:this.person.kyc,
+    shaId:this.person.shaId,
+    userId:this.person.id};
+    console.log("person"+this.person.customerId,this.person.carbon)
+    console.log("customer"+customer1.customerId,customer1.carbon)
+  this.customerService.update(customer1).subscribe(response=>{
+    this.toastrService.success(response.message,"Congratulations");
+  })
+  }
 
 
 
