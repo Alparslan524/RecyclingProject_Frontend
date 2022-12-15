@@ -6,6 +6,9 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cartItem';
 import { Customer } from 'src/app/models/customer';
+import { PersonDetailDto } from 'src/app/models/personDetailDto';
+import { AuthService } from 'src/app/services/auth.service';
+import { PersonDetailDtoService } from 'src/app/services/person-detail-dto.service';
 
 @Component({
   selector: 'app-garbage',
@@ -17,9 +20,16 @@ export class GarbageComponent implements OnInit{
   dataLoaded=false;
   totalCarbon=0;
   cartItems:CartItem[]=[];
+  personDetailDto: PersonDetailDto[]=[];
+  person:PersonDetailDto;
+  emailNow=this.authService.getEmail();
+
+  
   constructor(private garbageService: GarbageService,
     private toastrService:ToastrService,
-    private cartService:CartService
+    private cartService:CartService,
+    private authService:AuthService,
+    private personDetailDtoService:PersonDetailDtoService
     ) {}
     customer:Customer;
     
@@ -36,9 +46,9 @@ export class GarbageComponent implements OnInit{
   }
 
   addToCart(garbage:Garbage){ 
-      this.toastrService.success("Added to Cart",garbage.type)
       this.cartService.addToCart(garbage);
-  }
+      this.toastrService.success("Added to Cart",garbage.type)
+    }
 
   addToCarbon(garbage:Garbage){
     this.totalCarbon=this.cartService.addToCarbon(garbage)
@@ -54,9 +64,19 @@ export class GarbageComponent implements OnInit{
     this.toastrService.warning(garbage.type + " Deleted Cart")
   }
 
-  addBalance(customer:Customer){
-    this.cartService.addBalance(customer);
+  
+
+
+  getByCarbonValue(){
+    this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
+    this.personDetailDto=response.data;
+    this.person=this.personDetailDto[0]
+    
+    this.person.carbon=this.person.carbon+this.totalCarbon
+    this.cartService.addBalance(this.person.carbon)
+  })
   }
+
 
 
 

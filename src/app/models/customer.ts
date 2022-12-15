@@ -1,6 +1,6 @@
 export interface Customer{
     customerId:number;
-    personId:number;
+    userId:number;
     carbon:number;
     kyc:number;
     shaId:number;

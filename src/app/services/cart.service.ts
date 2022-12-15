@@ -3,17 +3,24 @@ import { CartItem } from '../models/cartItem';
 import { CartItems } from '../models/cartItems';
 import { Customer } from '../models/customer';
 import { Garbage } from '../models/garbage';
+import { PersonDetailDto } from '../models/personDetailDto';
+import { AuthService } from './auth.service';
 import { CustomerService } from './customer.service';
+import { PersonDetailDtoService } from './person-detail-dto.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  
+  person:PersonDetailDto;
+  personDetailDto: PersonDetailDto[]=[];
   totalCarbon=0;
-  newCarbon=0;
+  emailNow=this.authService.getEmail();
   
-  constructor() { }
+  
+  constructor(private authService:AuthService,
+    private personDetailDtoService:PersonDetailDtoService
+    ) { }
 
   addToCart(garbage:Garbage){
     let item = CartItems.find(c=>c.garbage.typeID === garbage.typeID);
@@ -45,9 +52,15 @@ export class CartService {
   }
 
 
-  addBalance(customer:Customer){
-    this.newCarbon=this.totalCarbon+500
-    console.log(this.newCarbon)
-    //totalKarbon + eski karbon değeri veritabanına ekle
+  addBalance(carbonValue:number){
+    this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
+      this.personDetailDto=response.data;
+      this.person=this.personDetailDto[0]
+      //carbon değeri CarbonValue----CustomerIdsi person.customerId olana adama gönderilecek----backendde yapılabilir
+      
+    })
   }
+
+  
+
 }

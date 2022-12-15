@@ -12,8 +12,12 @@ import { PersonDetailDtoService } from 'src/app/services/person-detail-dto.servi
 })
 export class CustomerDetailComponent implements OnInit{
   personDetailDto: PersonDetailDto[]=[];
-  dataLoaded=false;
   emailNow=this.authService.getEmail();
+  dataLoaded=false;
+  
+  
+
+
 
 
   constructor(private personDetailDtoService:PersonDetailDtoService,
@@ -30,6 +34,12 @@ export class CustomerDetailComponent implements OnInit{
     this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
     this.personDetailDto=response.data;
     this.dataLoaded=true;
-  })
+    })
   }
+
+  
+
+
+
+
 }
