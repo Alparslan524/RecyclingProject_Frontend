@@ -10,6 +10,8 @@ import { PersonDetailDto } from 'src/app/models/personDetailDto';
 import { AuthService } from 'src/app/services/auth.service';
 import { PersonDetailDtoService } from 'src/app/services/person-detail-dto.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { CarbonToKycService } from 'src/app/services/carbon-to-kyc.service';
+import { CarbonToKyc } from 'src/app/models/carbonToKYC';
 
 @Component({
   selector: 'app-garbage',
@@ -17,6 +19,7 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./garbage.component.css']
 })
 export class GarbageComponent implements OnInit{
+  carbonToKyc: CarbonToKyc[] = [];
   garbages: Garbage[] = [];
   dataLoaded=false;
   totalCarbon=0;
@@ -25,8 +28,7 @@ export class GarbageComponent implements OnInit{
   person:PersonDetailDto;
   emailNow=this.authService.getEmail();
 
-  sayi1=0;
-  sayi2=0;
+  
 
   
   constructor(private garbageService: GarbageService,
@@ -34,11 +36,13 @@ export class GarbageComponent implements OnInit{
     private cartService:CartService,
     private authService:AuthService,
     private personDetailDtoService:PersonDetailDtoService,
-    private customerService:CustomerService
+    private customerService:CustomerService,
+    private carbontokycService:CarbonToKycService
     ) {}
     customer:Customer;
     
   ngOnInit(): void {
+    this.getCarbonToKycs();
     this.getGarbages();
     this.getCart();
   }
@@ -69,7 +73,12 @@ export class GarbageComponent implements OnInit{
     this.toastrService.warning(garbage.type + " Deleted Cart")
   }
 
-  
+  getCarbonToKycs() {
+    this.carbontokycService.getCarbonToKycs().subscribe(response=>{
+      this.carbonToKyc=response.data;
+      this.dataLoaded=true;
+    });
+  }
 
 
   getByCarbonValue(){
@@ -80,15 +89,8 @@ export class GarbageComponent implements OnInit{
     this.person.carbon=this.person.carbon+this.totalCarbon
 
     this.update();
-    
-    
-    //this.sayi1=this.person.carbon
-      //this.sayi2=this.person.customerId
-      //this.customerService.updateById(this.sayi1, this.sayi2)
-  })
-  
+  });
   }
-
 
   update(){
   let customer1:Customer={
@@ -97,14 +99,39 @@ export class GarbageComponent implements OnInit{
     kyc:this.person.kyc,
     shaId:this.person.shaId,
     userId:this.person.id};
-    console.log("person"+this.person.customerId,this.person.carbon)
-    console.log("customer"+customer1.customerId,customer1.carbon)
-  this.customerService.update(customer1).subscribe(response=>{
+    this.customerService.update(customer1).subscribe(response=>{
     this.toastrService.success(response.message,"Congratulations");
   })
   }
 
+  
+  convertKYC(){
+    this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
+    this.personDetailDto=response.data;
+    this.person=this.personDetailDto[0]
+    if (this.person.carbon===0) {
+      this.toastrService.error("Your carbon is zero. You cannot convert")
+    } else {
+      this.updateKyc();
+    }
+    
+  });
+  }
 
 
+
+  updateKyc(){
+    let customer2:Customer={
+      customerId:this.person.customerId,
+      carbon:0,
+      kyc:(this.person.kyc+(this.person.carbon/this.carbonToKyc[0].carbontoKYC)),
+      shaId:this.person.shaId,
+      userId:this.person.id};
+      this.customerService.update(customer2).subscribe(response=>{
+      this.toastrService.success(response.message,"Congratulations! Your Carbons Are Converted To KYC");
+    })
+    }
+  
+    
 
 }

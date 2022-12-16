@@ -54,6 +54,29 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+    
+        <div class="col-6">
+            <table  class="table">
+                <thead>
+                    <tr>
+                        <th>Carbon To KYC Value</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let carbontokyc of carbonToKyc">
+                    <td>{{carbontokyc.carbontoKYC}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="col-6"><div class="btn btn-success" (click)="convertKYC()" >Convert Carbon To KYC</div></div>
+    
+    
+    </div>
+</div>
+
+
 
 
 
