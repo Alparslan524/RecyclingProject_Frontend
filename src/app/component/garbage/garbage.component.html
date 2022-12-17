@@ -2,10 +2,9 @@
     <div class="row">
         <div *ngIf="dataLoaded==false" class="spinner-border text-success mx-auto" role="status">
             <span class="visually-hidden">Loading...</span>
-          </div>
+        </div>
     </div>
 </div>
-
 
 <div class="container">
     <div class="row">
@@ -20,15 +19,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let garbage of garbages">
-                    <td> {{garbage.typeID}}</td>
-                    <td> {{garbage.type}} </td>
-                    <td> {{garbage.carbon}} </td>
-                    <td>
-                        <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success"> Add to Cart </button>
-                    </td>
-                </tr>
-            </tbody>
+                    <tr *ngFor="let garbage of garbages">
+                        <td> {{garbage.typeID}}</td>
+                        <td> {{garbage.type}} </td>
+                        <td> {{garbage.carbon}} </td>
+                        <td>
+                            <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success">
+                                Add to Cart </button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div class="col-4">
@@ -46,19 +46,19 @@
                         <td> {{cartItem.quantity}} </td>
                         <button type="button" class="btn">
                             <span (click)="removeFromCart(cartItem.garbage)" class="badge bg-danger"> Delete </span>
-                          </button>
+                        </button>
                 </tbody>
                 <h3>Total Carbon: {{totalCarbon}} </h3>
-                <button class="btn btn-success"  (click)="getByCarbonValue()" >Confirm Order</button>
+                <button class="btn btn-success" (click)="getByCarbonValue()">Confirm Order</button>
             </table>
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row">
-    
         <div class="col-6">
-            <table  class="table">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Carbon To KYC Value</th>
@@ -69,20 +69,33 @@
                 </tr>
             </table>
         </div>
-        
-        <div class="col-6"><div class="btn btn-success" (click)="convertKYC()" >Convert Carbon To KYC</div></div>
-    
-    
+        <div class="col-6">
+            <div class="btn btn-success" (click)="convertKYC()">Convert Carbon To KYC</div>
+        </div>
     </div>
 </div>
 
+<div class="card-body">
+    <form [formGroup]="transferKYCformGroup" action="" *ngIf="transferKYCformGroup" >
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <label for="transferKYCValue"> How many KYC will you send? </label>
+                    <div class="form-group mb-3">
+                        <input type="number" id="transferKYCValue" formControlName="transferKYCValue" class="form-control"
+                            placeholder="Enter Value" />
+                    </div>
+                </div>
 
-
-
-
-
-
-
-
-
-
+                <div class="col-6">
+                    <label for="adress"> Enter The Adress </label>
+                    <div class="form-group mb-3">
+                        <input type="text" id="adress" formControlName="adress" class="form-control"
+                            placeholder="Enter Adress" />
+                    </div>
+                </div>
+                <button class="btn btn-fill btn-success" type="reset" (click)="sendKYC()"  >Send To KYC</button>
+            </div>
+        </div>
+    </form>
+</div>

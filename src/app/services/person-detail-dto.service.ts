@@ -20,6 +20,6 @@ export class PersonDetailDtoService {
     return this.httpClient.get<ListResponseModel<PersonDetailDto>>(this.apiUrl + "/getbyemail"+"?email="+email);
   }
 
-
+  
   
 }

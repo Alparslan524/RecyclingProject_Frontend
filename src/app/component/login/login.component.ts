@@ -5,6 +5,8 @@ import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { Sha256Service } from 'src/app/services/sha256.service';
+import { SHA256 } from 'src/app/models/sHA256';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +17,13 @@ export class LoginComponent implements OnInit {
 
   
   loginForm:FormGroup;
+  sHA256s:SHA256[]=[];
 
   constructor(private formBuilder:FormBuilder,
     private authService:AuthService,
     private toastrService:ToastrService,
     private router:Router,
+    private sha256Service:Sha256Service
     ) {  }
      helper = new JwtHelperService();
   
@@ -71,5 +75,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(["register"]);
     }
 
+
+   
 
 }

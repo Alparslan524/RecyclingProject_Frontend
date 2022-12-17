@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SHA256 } from 'src/app/models/sHA256';
 import { Sha256Service } from 'src/app/services/sha256.service';
@@ -11,6 +10,7 @@ import { Sha256Service } from 'src/app/services/sha256.service';
 export class SHA256Component implements OnInit{
   sHA256s:SHA256[]=[];
   dataLoaded=false;
+
   
   constructor(private sha256Service:Sha256Service) {}
   
@@ -24,4 +24,12 @@ export class SHA256Component implements OnInit{
       this.dataLoaded=true;
     });
   }
+  
+  
+
+  
+
+
+  
+
 }

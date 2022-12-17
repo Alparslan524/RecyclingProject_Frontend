@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Customer } from '../models/customer';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 
 @Injectable({
@@ -28,4 +29,9 @@ export class CustomerService {
  update(customer:Customer):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(this.apiUrl+"/update",customer)
   }
+
+  getById(id:number):Observable<SingleResponseModel<Customer>>{
+    return this.httpClient.get<SingleResponseModel<Customer>>(this.apiUrl+"/getbyId?id="+id);
+  }
+
 }
