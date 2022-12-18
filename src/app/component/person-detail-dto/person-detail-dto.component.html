@@ -12,18 +12,17 @@
     </div>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<table *ngIf="dataLoaded==true" class="table  " style=" border-radius: 2%;    border-color: white;   background-color: #515570; color: white">
     <thead>
         <tr>
-            <th>UserID</th>
-            <th>CustomerID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>carbon</th>
-            <th>kyc</th>
-            <th>ShaId</th>
-            <th>sha256</th>
+            <th><b>User ID</b></th>
+            <th><b>Customer ID</b></th>
+            <th><b>First Name</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>Email</b></th>
+            <th><b>Carbon Quantity</b> </th>
+            <th><b>KYC Quantity</b> </th>
+            <th><b>SHA-256 Adress</b> </th>
         </tr>
     </thead>
     <tbody>
@@ -35,7 +34,6 @@
             <td>{{personDetail.email}}</td>
             <td>{{personDetail.carbon}}</td>
             <td>{{personDetail.kyc}}</td>
-            <td> {{personDetail.shaId}} </td>
             <td>{{personDetail.sha256}}</td>
         </tr>
     </tbody>

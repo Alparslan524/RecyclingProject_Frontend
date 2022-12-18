@@ -1,29 +1,37 @@
-<div class="container ">
-    <div class="row">
-        <div *ngIf="dataLoaded==false" class="spinner-border text-success mx-auto" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
+<div class="card border-dark mb-3">
+    <div class="card-body text-light" style="background-color: #515570">
+        <div class="container ">
+            <div class="row">
+                <div *ngIf="dataLoaded==false" class="spinner-border text-success mx-auto" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+            </div>
+        </div>
+        <table *ngIf="dataLoaded==true" class="table text-light" >
+            <thead>
+                <tr>
+                    <th>Carbon To KYC</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let carbontokyc of carbonToKyc">
+                <td>{{carbontokyc.carbontoKYC}}</td>
+            </tr>
+        </table>
     </div>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>Carbon To KYC</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let carbontokyc of carbonToKyc">
-        <td>{{carbontokyc.carbontoKYC}}</td>
-    </tr>
-</table>
 
-<div class="card-body">
-    <form [formGroup]="carbonToKycUpdateForm" action="" *ngIf="carbonToKycUpdateForm">
-        <label for="carbontoKYC"> Carbon to KYC </label>
-        <div class="form-group mb-3">
-            <input type="number" id="carbontoKYC" formControlName="carbontoKYC" 
-            class="form-control" placeholder="Enter Carbon Value" />
-        </div>
-        <button class="btn btn-fill btn-success" (click)="update()" type="reset" >Update Value</button>
-    </form>
+
+<div class="card border-dark text-light">
+    <div class="card-body  " style="background-color: #515570" >
+        <form [formGroup]="carbonToKycUpdateForm" action="" *ngIf="carbonToKycUpdateForm">
+            <label for="carbontoKYC"> Carbon to KYC </label>
+            <div class="form-group mb-3">
+                <input type="number" id="carbontoKYC" formControlName="carbontoKYC" 
+                class="form-control" placeholder="Enter Carbon Value" />
+            </div>
+            <button class="btn btn-fill btn-success" (click)="update()" type="reset" >Update Value</button>
+        </form>
+    </div>
 </div>
+
 

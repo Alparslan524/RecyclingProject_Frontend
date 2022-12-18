@@ -1,22 +1,17 @@
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>carbon</th>
-            <th>kyc</th>
-            <th>sha256</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let personDetail of personDetailDto">
-            <td>{{personDetail.firstName}}</td>
-            <td>{{personDetail.lastName}}</td>
-            <td>{{personDetail.email}}</td>
-            <td>{{personDetail.carbon}}</td>
-            <td>{{personDetail.kyc}}</td>
-            <td>{{personDetail.sha256}}</td>
-        </tr>
-    </tbody>
-</table>
+
+<div class="card  mt-2 border-dark " style="width: 18rem;  background-color: #515570; border-radius: 50px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
+    <img class="card-img-top" src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043273-animal-avatar-mutton-sheep_113242.png" alt="Card image cap">
+    <div class="card-body ">
+      <h5 class="card-title text-light  text-center ">Your information</h5>
+    </div>
+    <ul class="list-group list-group-flush " style="border-color: black; ">
+        <ul class="list-group list-group-flush "  *ngFor="let personDetail of personDetailDto">
+            <li class="list-group-item "> <b>First Name:</b>  {{personDetail.firstName}}</li>
+            <li class="list-group-item"><b>Last Name:</b> {{personDetail.lastName}}</li>
+            <li class="list-group-item"><b>Your E-mail:</b> {{personDetail.email}}</li>
+            <li class="list-group-item"><b>Carbon Quentity:</b> {{personDetail.carbon}}</li>
+            <li class="list-group-item"><b>KYC Quentity:</b> {{personDetail.kyc}}</li>
+            <li class="list-group-item" style="border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; " ><b>Your SHA-256 Adress:</b> {{personDetail.sha256}}</li>
+          </ul>
+    </ul>
+</div>
