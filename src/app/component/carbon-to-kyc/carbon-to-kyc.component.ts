@@ -44,6 +44,9 @@ export class CarbonToKycComponent implements OnInit{
     if (this.carbonToKycUpdateForm.valid) {
       let carbonToKycModel = Object.assign({},this.carbonToKycUpdateForm.value); 
       this.carbontokycService.update(carbonToKycModel).subscribe(data=>{
+        setTimeout(() => {
+          location.reload();
+         }, 2300);
         this.toastrService.success(data.message,"Congratulations");
       }); //observable
       

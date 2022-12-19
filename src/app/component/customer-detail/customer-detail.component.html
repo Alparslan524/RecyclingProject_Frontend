@@ -2,9 +2,9 @@
 <div class="card  mt-2 border-dark " style="width: 18rem;  background-color: #515570; border-radius: 50px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
     <img class="card-img-top" src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043273-animal-avatar-mutton-sheep_113242.png" alt="Card image cap">
     <div class="card-body ">
-      <h5 class="card-title text-light  text-center ">Your information</h5>
+      <h5 class="card-title text-light  text-center " style="font-family: cursive;">Your information</h5>
     </div>
-    <ul class="list-group list-group-flush " style="border-color: black; ">
+    <ul class="list-group list-group-flush  p-1" style="border-color: black; ">
         <ul class="list-group list-group-flush "  *ngFor="let personDetail of personDetailDto">
             <li class="list-group-item "> <b>First Name:</b>  {{personDetail.firstName}}</li>
             <li class="list-group-item"><b>Last Name:</b> {{personDetail.lastName}}</li>

@@ -1,7 +1,7 @@
 <div class="card text-center mt-2 mb-4" style="background-color: #515570;  color: white;
 border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-radius: 30px ; border-bottom-right-radius: 30px ;">
     <div class="card-header">
-      <h5><b>Send KYC</b> </h5>
+      <h5><b style="font-family: cursive;">Send KYC</b> </h5>
     </div>
     <div class="card-body">
       <form [formGroup]="transferKYCformGroup" action="" *ngIf="transferKYCformGroup" >
@@ -21,7 +21,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
                             placeholder="Enter Adress" />
                     </div>
                 </div>
-                <button class="btn btn-fill btn-success" type="reset" (click)="sendKYC()"  >Send To KYC</button>
+                <button class="btn btn-fill btn-success" type="reset" (click)="sendKYC()" style="font-family: cursive;" >Send To KYC</button>
             </div>
         </div>
     </form>
@@ -38,15 +38,15 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
     </div>
 </div>
 
-<div class="container p-4 m3" style=" background-color: #515570; border-radius: 20px;">
+<div class="container p-4 " style=" background-color: #515570; border-radius: 20px;">
     <div class="row">
         
-            <table *ngIf="dataLoaded==true" class="table" style="color:white;">
+            <table *ngIf="dataLoaded==true" class="table" style="color:white; ">
                 <thead>
                     <tr>
-                        <th><b>Type</b> </th>
-                        <th> <b>Carbon</b> </th>
-                        <th><b>Add to Cart</b></th>
+                        <th><b style="font-family: cursive;" >Type</b> </th>
+                        <th> <b style="font-family: cursive;">Carbon</b> </th>
+                        <th><b style="font-family: cursive;">Add to Cart</b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,7 +55,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
                         <td> {{garbage.type}} </td>
                         <td> {{garbage.carbon}} </td>
                         <td>
-                            <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success">
+                            <button (click)="addToCart(garbage)" (click)="addToCarbon(garbage)" class="btn btn-success" style="font-family: cursive;"> 
                                 Add to Cart </button>
                         </td>
                     </tr>
@@ -69,7 +69,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
     <div class="row">
         <div class="col-5 ">
             <div class="card text-center mt-4 " style="background-color: #515570; border-radius: 20px; color: white;" >
-                <h5 class="card-header"><b>Here you can convert your Carbons to KYC</b></h5>
+                <h5 class="card-header" style="font-family: cursive;"><b>CART</b></h5>
                 <div class="card-body">
                     <div class="container " style="text-align: left;">
                         <div class="row">
@@ -87,11 +87,11 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
                                     <td> {{cartItem.garbage.type}}</td>
                                     <td> {{cartItem.quantity}} </td>
                                     <button type="button" class="btn">
-                                        <span (click)="removeFromCart(cartItem.garbage)" class="badge bg-danger"> Delete </span>
+                                        <span (click)="removeFromCart(cartItem.garbage)" class="badge bg-danger" style="font-family: cursive;"> Delete </span>
                                     </button>
                             </tbody> 
                         </table>
-                        <div class="container text-center"><button class="btn btn-success  " (click)="getByCarbonValue()">Confirm {{totalCarbon}} Carbon Orders</button></div>
+                        <div class="container text-center" style="font-family: cursive;"><button class="btn btn-success  " (click)="getByCarbonValue()"  >Confirm {{totalCarbon}} Carbon Orders</button></div>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
 </div>
         <div class="col-7">
             <div class="card text-center mt-4 " style="background-color: #515570; border-radius: 20px; color: white;" >
-                <h5 class="card-header"><b>Here you can convert your Carbons to KYC</b></h5>
+                <h5 class="card-header" style="font-family: cursive;"><b>Here you can convert your Carbons to KYC</b></h5>
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
@@ -115,7 +115,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
                                         <td style="font-size: x-large;">{{carbontokyc.carbontoKYC}}</td>
                                     </tr>
                                 </table>
-                                <div class="btn btn-success" (click)="convertKYC()">Convert Carbon To KYC</div>
+                                <div class="btn btn-success"  (click)="convertKYC()" style="font-family: cursive;">Convert Carbon To KYC</div>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,3 @@
-
 <div class="mb-3">
     <label for="filterText" class="form-label">Search Person</label>
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Enter the Person Name">
@@ -12,29 +11,35 @@
     </div>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table  " style=" border-radius: 2%;    border-color: white;   background-color: #515570; color: white">
-    <thead>
-        <tr>
-            <th><b>User ID</b></th>
-            <th><b>Customer ID</b></th>
-            <th><b>First Name</b></th>
-            <th><b>Last Name</b></th>
-            <th><b>Email</b></th>
-            <th><b>Carbon Quantity</b> </th>
-            <th><b>KYC Quantity</b> </th>
-            <th><b>SHA-256 Adress</b> </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
-            <td> {{personDetail.id}} </td>
-            <td>{{personDetail.customerId}}</td>
-            <td>{{personDetail.firstName}}</td>
-            <td>{{personDetail.lastName}}</td>
-            <td>{{personDetail.email}}</td>
-            <td>{{personDetail.carbon}}</td>
-            <td>{{personDetail.kyc}}</td>
-            <td>{{personDetail.sha256}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="container p-4">
+    <div class="row">
+        <table *ngIf="dataLoaded==true" class=" table " style=" border-radius: 2%;    border-color: white;   background-color: #515570; color: white;">
+            <thead style="font-family: cursive;">
+                <tr>
+                    <th><b>User ID</b></th>
+                    <th><b>Customer ID</b></th>
+                    <th><b>First Name</b></th>
+                    <th><b>Last Name</b></th>
+                    <th><b>Email</b></th>
+                    <th><b>Carbon Quantity</b> </th>
+                    <th><b>KYC Quantity</b> </th>
+                    <th><b>SHA-256 Adress</b> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let personDetail of personDetailDto | filterPersonPipe:filterText ">
+                    <td> {{personDetail.id}} </td>
+                    <td>{{personDetail.customerId}}</td>
+                    <td>{{personDetail.firstName}}</td>
+                    <td>{{personDetail.lastName}}</td>
+                    <td>{{personDetail.email}}</td>
+                    <td>{{personDetail.carbon}}</td>
+                    <td>{{personDetail.kyc}}</td>
+                    <td>{{personDetail.sha256}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    

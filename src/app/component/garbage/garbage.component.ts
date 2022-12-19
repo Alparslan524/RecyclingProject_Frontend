@@ -91,14 +91,24 @@ export class GarbageComponent implements OnInit{
 
 
   getByCarbonValue(){
-    this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
-    this.personDetailDto=response.data;
-    this.person=this.personDetailDto[0]
+    if (this.totalCarbon===0) {
+      this.toastrService.error("You must add recycling to be able to approve the cart")
+    }
+    else
+    {
+      this.personDetailDtoService.getByEmail(this.emailNow).subscribe(response=>{
+        this.personDetailDto=response.data;
+        this.person=this.personDetailDto[0]
+        
+        this.person.carbon=this.person.carbon+this.totalCarbon
     
-    this.person.carbon=this.person.carbon+this.totalCarbon
-
-    this.update();
-  });
+        this.update();
+        setTimeout(() => {
+          this.totalCarbon=0;
+         }, 100);
+      });
+    }
+    
   }
 
   update(){
@@ -110,6 +120,9 @@ export class GarbageComponent implements OnInit{
     userId:this.person.id};
     this.customerService.update(customer1).subscribe(response=>{
     this.toastrService.success(response.message,"Congratulations");
+    setTimeout(() => {
+      location.reload();
+     }, 1500);
   })
   }
 
@@ -122,6 +135,7 @@ export class GarbageComponent implements OnInit{
       this.toastrService.error("Your carbon is zero. You cannot convert")
     } else {
       this.updateKyc();
+      
     }
     
   });
@@ -138,6 +152,9 @@ export class GarbageComponent implements OnInit{
       userId:this.person.id};
       this.customerService.update(customer1).subscribe(response=>{
       this.toastrService.success(response.message,"Congratulations! Your Carbons Are Converted To KYC");
+      setTimeout(() => {
+        location.reload();
+       }, 1500);
     })
     }
     
@@ -206,7 +223,11 @@ export class GarbageComponent implements OnInit{
          shaId:this.person.shaId,
          userId:this.person.id};
          this.customerService.update(customerSender).subscribe(response=>{
+          setTimeout(() => {
+            location.reload();
+           }, 2500);
           return this.toastrService.success(response.message,"Congratulations! Your KYC has reached its recipient");
+          
        })
      }
     
@@ -220,7 +241,11 @@ export class GarbageComponent implements OnInit{
         shaId:this.buyerCustomer.shaId,
         userId:this.buyerCustomer.userId}
         this.customerService.update(customerBuyer).subscribe(response=>{
+          setTimeout(() => {
+            location.reload();
+           }, 2500);
           return this.toastrService.success(response.message,"Congratulations! Your KYC has been Send");
+          
         })
      }
     

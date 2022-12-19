@@ -1,39 +1,40 @@
+<div class="container p-4 mb-3" style=" background-color: #515570; border-radius: 20px; text-align: center;">
+    <div class="row">
+        
+            <table *ngIf="dataLoaded==true" class="table" style="color:white; ">
+                <thead>
+                    <tr>
+                        <th><b style="font-family: cursive;" >TypeID</b> </th>
+                        <th><b style="font-family: cursive;" >Type</b> </th>
+                        <th> <b style="font-family: cursive;">Carbon</b> </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let garbage of garbages">
+                        <td> {{garbage.typeID}} </td>
+                        <td> {{garbage.type}} </td>
+                        <td> {{garbage.carbon}} </td>
+                        <td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+
 <div class="container">
     <div class="row text-light">
+        
+        
         <div class="col-md-6">
-            <div class="card border-dark  " style="background-color: #515570">
+            <div class="card border-dark text-light "  style="background-color: #515570; border-radius: 20px;">
                 <div class="card-header">
-                    <h5 class="title">
-                        Garbage Add
-                    </h5>
-                </div>
-                <div class="card-body ">
-                    <form [formGroup]="garbageAddForm" action="">
-                        
-                        <label for="type"> Garbage Type </label>
-                        <div class="form-group mb-3">
-                            <input type="text" id="type" formControlName="type" 
-                            class="form-control" placeholder="Enter Garbage Type" />
-                        </div>
-                        
-                        <label for="carbon"> Carbon Value </label>
-                        <div class="form-group mb-3">
-                            <input type="number" id="carbon" formControlName="carbon" 
-                            class="form-control" placeholder="Enter Carbon Value" />
-                        </div>
-                        <button class="btn btn-fill btn-success" (click)="add()" type="reset" >Add Garbage</button>
-                    </form>
-                </div>
-             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card border-dark text-light"  style="background-color: #515570">
-                <div class="card-header">
-                    <h5 class="title">
+                    <h5 class="title" style="font-family: cursive;">
                         Garbage Delete
                     </h5>
                         </div>
-                        <div class="card-body ">
+                        <div class="card-body " style="padding-bottom: 5px;">
                             <form [formGroup]="garbageDeleteForm" action="">
                         
                         <label for="typeID"> Type ID </label>
@@ -54,11 +55,43 @@
                             class="form-control" placeholder="Enter Carbon Value" />
                         </div>
     
-                        <button class="btn btn-fill btn-success" (click)="delete()" type="reset" >Delete Garbage</button>
+                        <button class="btn btn-fill btn-success" (click)="delete()" type="reset" style="font-family: cursive;">Delete Garbage</button>
                     
                     </form>
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="card border-dark  " style="background-color: #515570; border-radius: 20px;">
+                <div class="card-header">
+                    <h5 class="title" style="font-family: cursive;">
+                        Garbage Add
+                    </h5>
+                </div>
+                <div class="card-body ">
+                    <form [formGroup]="garbageAddForm" action="">
+                        
+                        <label for="type"> Garbage Type </label>
+                        <div class="form-group mb-3">
+                            <input type="text" id="type" formControlName="type" 
+                            class="form-control" placeholder="Enter Garbage Type" />
+                        </div>
+                        
+                        <label for="carbon"> Carbon Value </label>
+                        <div class="form-group mb-3">
+                            <input type="number" id="carbon" formControlName="carbon" 
+                            class="form-control" placeholder="Enter Carbon Value" />
+                        </div>
+                        <button class="btn btn-fill btn-success" (click)="add()" type="reset" style="font-family: cursive;">Add Garbage</button>
+                    </form>
+                </div>
+             </div>
+        </div>
+    
+    
+    
+    
     </div>
 </div>
+
+
