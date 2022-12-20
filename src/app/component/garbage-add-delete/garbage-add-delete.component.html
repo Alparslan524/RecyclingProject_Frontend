@@ -28,9 +28,9 @@
         
         
         <div class="col-md-6">
-            <div class="card border-dark text-light "  style="background-color: #515570; border-radius: 20px;">
+            <div class="card border-dark text-light "  style="background-color: #515570d0; border-radius: 20px;">
                 <div class="card-header">
-                    <h5 class="title" style="font-family: cursive;">
+                    <h5 class="title" style="font-family: cursive; text-align: center;">
                         Garbage Delete
                     </h5>
                         </div>
@@ -54,17 +54,19 @@
                             <input type="number" id="carbon" formControlName="carbon" 
                             class="form-control" placeholder="Enter Carbon Value" />
                         </div>
-    
-                        <button class="btn btn-fill btn-success" (click)="delete()" type="reset" style="font-family: cursive;">Delete Garbage</button>
+                        <div class="div" style="text-align: center;">
+                            <button class="btn btn-fill btn-success" (click)="delete()" type="reset" style="font-family: cursive; ">Delete Garbage</button>
+                        </div>
+                        
                     
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card border-dark  " style="background-color: #515570; border-radius: 20px;">
+            <div class="card border-dark  " style=" background-color: #515570; border-radius: 20px;">
                 <div class="card-header">
-                    <h5 class="title" style="font-family: cursive;">
+                    <h5 class="title" style="font-family: cursive; text-align: center;">
                         Garbage Add
                     </h5>
                 </div>
@@ -82,7 +84,10 @@
                             <input type="number" id="carbon" formControlName="carbon" 
                             class="form-control" placeholder="Enter Carbon Value" />
                         </div>
-                        <button class="btn btn-fill btn-success" (click)="add()" type="reset" style="font-family: cursive;">Add Garbage</button>
+                        <div class="div" style="text-align: center;">
+                            <button class="btn btn-fill btn-success" (click)="add()" type="reset" style="font-family: cursive; text-align: center;">Add Garbage</button>
+                        </div>
+                        
                     </form>
                 </div>
              </div>
