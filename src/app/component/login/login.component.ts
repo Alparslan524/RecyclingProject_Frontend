@@ -70,12 +70,18 @@ export class LoginComponent implements OnInit {
   }
 
  
+  callMernisPage(){
+    this.router.navigate(["mernisPage"]);
+  }
 
   callRegister() {
     this.router.navigate(["register"]);
     }
 
 
-   
+    
+
+
+
 
 }

@@ -5,6 +5,7 @@ import { CustomerDetailComponent } from './component/customer-detail/customer-de
 import { CustomerPageComponent } from './component/customer-page/customer-page.component';
 import { GarbageAddDeleteComponent } from './component/garbage-add-delete/garbage-add-delete.component';
 import { LoginComponent } from './component/login/login.component';
+import { MernisPageComponent } from './component/mernis-page/mernis-page.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
 {path: "admin", component:AdminComponent},
 {path: "customerPage", component:CustomerPageComponent},
 {path: "register", component:RegisterComponent },
+{path: "mernisPage", component:MernisPageComponent },
 {path: "customers/getbyemail/:email", component:CustomerDetailComponent}
 ];
 

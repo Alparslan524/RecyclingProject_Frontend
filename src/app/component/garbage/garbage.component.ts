@@ -105,7 +105,7 @@ export class GarbageComponent implements OnInit{
         this.update();
         setTimeout(() => {
           this.totalCarbon=0;
-         }, 100);
+        }, 100);
       });
     }
     

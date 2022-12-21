@@ -23,6 +23,7 @@ import { AdminComponent } from './component/admin/admin.component';
 import { CustomerPageComponent } from './component/customer-page/customer-page.component';
 import { CustomerDetailComponent } from './component/customer-detail/customer-detail.component';
 import { CustomerPipePipe } from './pipes/customer-pipe.pipe';
+import { MernisPageComponent } from './component/mernis-page/mernis-page.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { CustomerPipePipe } from './pipes/customer-pipe.pipe';
     CustomerPageComponent,
     CustomerDetailComponent,
     CustomerPipePipe,
+    MernisPageComponent,
   ],
   imports: [
     BrowserModule,

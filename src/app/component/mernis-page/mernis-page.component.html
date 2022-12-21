@@ -1,4 +1,4 @@
-<!-- login -->
+<!-- mernisPage -->
 <section class="h-100 gradient-form" >
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -14,30 +14,34 @@
                     <h4 class="mt-1 mb-5 pb-1" style="font-family: cursive;">We are the Koyun Team</h4>
                   </div>
   
-                  <form [formGroup]="loginForm" >
-                    <p>Please login to your account</p>
+                  <form [formGroup]="mernisForm" >
+                    <p>Enter your information for verification</p>
   
                     <div class="form-outline mb-4">
-                      <input formControlName="email" type="email" id="form2Example11" class="form-control"
-                        placeholder="Enter Email" />
+                      <input formControlName="name" type="text" id="form2Example11" class="form-control"
+                        placeholder="Enter Name" />
                       
                     </div>
   
                     <div class="form-outline mb-4">
-                      <input formControlName="password" #x type="password" id="form2Example22" class="form-control" placeholder="Enter Password"/>
+                      <input formControlName="lastName"  type="text" id="form2Example22" class="form-control" placeholder="Enter Last Name"/>
                     </div>
-                   
+                    
+                    <div class="form-outline mb-4">
+                        <input formControlName="identityNumber"  type="number" id="form2Example33" class="form-control" placeholder="Enter İdentity Number"/>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input formControlName="birthDate"  type="number" id="form2Example44" class="form-control" placeholder="Enter Birth Date Year"/>
+                      </div>
+
                     <div class="text-center pt-1 mb-2 pb-1">
-                      <button (click)="x.type=x.type=='password'?'text':'password'" type="button" class="btn btn-secondary btn-outline-primary" style="color:white; " >Show Password</button>
+                      <button type="reset" (click)="verify()" onclick="" type="button" type="reset" class="btn btn-secondary btn-outline-primary" style="color:white">Verify</button>
                     </div>
-                   
+                    
                     <div class="text-center pt-1 mb-2 pb-1">
-                      <button type="reset" (click)="login()" type="button" class="btn btn-secondary btn-outline-primary" style="color:white">Log in</button>
-                    </div>
-  
-                    <div class="d-flex align-items-center justify-content-center pb-4">
-                      <button type="button" class="btn btn-secondary btn-outline-primary" (click)="callMernisPage()" style="color:white" >Don't have an account? Create now</button>
-                    </div>
+                        <button type="button" class="btn btn-secondary btn-outline-danger" style="color:white" (click)="cancel()" >Cancel</button>
+                      </div>
   
                   </form>
 
@@ -47,8 +51,7 @@
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2  " style="border-top-right-radius: 3%; border-bottom-right-radius: 3%; text-align: center;">
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4"  >
                   <h4 class="mb-4" style="color:black; font-family: cursive;">We are the KOYUN TEAM</h4>
-                  <h5><p class="small mb-0" style="color:black" style="font-family: cursive; color: black;">  We all know the deplorable damage that waste does to our world.  
-                                                              It's time to stop this, it's already passing. If you want to be a part of it, join us now!
+                  <h5><p class="small mb-0" style="color:black" style="font-family: cursive; color: black;">  dolduracazzzzz
                     </p></h5>
                   </div>
                 </div>
