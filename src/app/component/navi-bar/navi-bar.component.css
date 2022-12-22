@@ -1,0 +1,17 @@
+button {
+    /* Önceki css kodları */
+    transition: transform 0.5s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.1); /* Buton büyütülür */
+  }
+  
+  button:active {
+    transform: scale(0.9); /* Buton küçültülür */
+  }
+  
+  button[draggable] {
+    cursor: move; /* Fare işaretçisi "taşı" olarak değiştirilir */
+  }
+  
