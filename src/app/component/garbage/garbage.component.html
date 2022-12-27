@@ -21,7 +21,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
                             placeholder="Enter Adress" />
                     </div>
                 </div>
-                <button class="btn btn-fill btn-success" type="reset" (click)="sendKYC()" style="font-family: cursive;" >Send To KYC</button>
+                <button class="btn btn-fill btn-success" type="reset" (click)="sendKYC()"  [disabled]="isDisabled" style="font-family: cursive;" >Send To KYC</button>
             </div>
         </div>
     </form>
@@ -115,7 +115,7 @@ border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-
                                         <td style="font-size: x-large;">{{carbontokyc.carbontoKYC}}</td>
                                     </tr>
                                 </table>
-                                <button class="btn btn-success"  (click)="convertKYC()" style="font-family: cursive;">Convert Carbon To KYC</button>
+                                <button class="btn btn-success"  (click)="convertKYC()" [disabled]="isDisabled" style="font-family: cursive;">Convert Carbon To KYC</button>
                             </div>
                         </div>
                     </div>

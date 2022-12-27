@@ -11,6 +11,7 @@ import { CarbonToKycService } from 'src/app/services/carbon-to-kyc.service';
   styleUrls: ['./carbon-to-kyc.component.css']
 })
 export class CarbonToKycComponent implements OnInit{
+  isDisabled=false;
   carbonToKyc: CarbonToKyc[] = [];
   dataLoaded=false;
   carbonToKycUpdateForm: FormGroup;
@@ -42,6 +43,7 @@ export class CarbonToKycComponent implements OnInit{
 
   update(){
     if (this.carbonToKycUpdateForm.valid) {
+      this.isDisabled=true;
       let carbonToKycModel = Object.assign({},this.carbonToKycUpdateForm.value); 
       this.carbontokycService.update(carbonToKycModel).subscribe(data=>{
         setTimeout(() => {

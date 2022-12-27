@@ -1,7 +1,11 @@
 <div class="container p-4 mb-3" style=" background-color: #515570; border-radius: 20px; text-align: center; box-shadow: 3px 3px 4px #000;">
     <div class="row">
-        
-            <table *ngIf="dataLoaded==true" class="table" style="color:white; ">
+        <div class="row">
+            <div *ngIf="dataLoaded==false" class="spinner-border text-success mx-auto" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>   
+        <table *ngIf="dataLoaded==true" class="table" style="color:white; ">
                 <thead>
                     <tr>
                         <th><b style="font-family: cursive;" >TypeID</b> </th>
@@ -23,12 +27,15 @@
     </div>
 </div>
 
+
+
+
 <div class="container">
     <div class="row text-light">
         
         
         <div class="col-md-6">
-            <div class="card border-dark text-light "  style="background-color: #515570; border-radius: 20px;">
+            <div class="card border-dark text-light mb-3"  style="background-color: #515570; border-radius: 20px;">
                 <div class="card-header">
                     <h5 class="title" style="font-family: cursive; text-align: center;">
                         Garbage Delete
@@ -55,7 +62,7 @@
                             class="form-control" placeholder="Enter Carbon Value" />
                         </div>
                         <div class="div" style="text-align: center;">
-                            <button class="btn btn-fill btn-success" (click)="delete()" type="reset" style="font-family: cursive; ">Delete Garbage</button>
+                            <button class="btn btn-fill btn-success mb-2" (click)="delete()" [disabled]="isDisabledDelete" type="reset" style="font-family: cursive; ">Delete Garbage</button>
                         </div>
                         
                     
@@ -85,7 +92,7 @@
                             class="form-control" placeholder="Enter Carbon Value" />
                         </div>
                         <div class="div" style="text-align: center;">
-                            <button class="btn btn-fill btn-success" (click)="add()" type="reset" style="font-family: cursive; text-align: center;">Add Garbage</button>
+                            <button class="btn btn-fill btn-success" (click)="add()" [disabled]="isDisabled" type="reset" style="font-family: cursive; text-align: center;">Add Garbage</button>
                         </div>
                         
                     </form>

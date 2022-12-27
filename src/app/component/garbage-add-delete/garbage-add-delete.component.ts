@@ -11,6 +11,8 @@ import { GarbageService } from 'src/app/services/garbage.service';
 })
 export class GarbageAddDeleteComponent implements OnInit {
   
+  isDisabled=false;
+  isDisabledDelete=false;
   garbages:Garbage[]=[];
   garbageAddForm:FormGroup;
   garbageDeleteForm:FormGroup;
@@ -42,6 +44,7 @@ export class GarbageAddDeleteComponent implements OnInit {
   }
   add(){
     if (this.garbageAddForm.valid) {
+      this.isDisabled=true;
       let garbageModel = Object.assign({},this.garbageAddForm.value); 
       this.garbageService.add(garbageModel).subscribe(data=>{
         setTimeout(() => {
@@ -66,6 +69,7 @@ export class GarbageAddDeleteComponent implements OnInit {
 
   delete(){
     if (this.garbageDeleteForm.valid) {
+      this.isDisabledDelete=true;
       let garbageModel = Object.assign({},this.garbageDeleteForm.value); 
       this.garbageService.delete(garbageModel).subscribe(data=>{
         setTimeout(() => {

@@ -14,22 +14,22 @@
                 </tr>
             </thead>
             <tr *ngFor="let carbontokyc of carbonToKyc">
-                <td>{{carbontokyc.carbontoKYC}}</td>
+                <td ><h4>{{carbontokyc.carbontoKYC}}</h4></td>
             </tr>
         </table>
     </div>
 </div>
 
 
-<div class="card border-dark text-light" style=" border-radius: 20px;">
+<div class="card border-dark text-light" style=" border-radius: 20px; text-align: center">
     <div class="card-body  " style="background-color: #515570; border-radius: 18px;" >
         <form [formGroup]="carbonToKycUpdateForm" action="" *ngIf="carbonToKycUpdateForm">
-            <label for="carbontoKYC"> Carbon to KYC </label>
+            <label for="carbontoKYC" style="font-family: cursive;"> <h4> Update Carbon to KYC Value</h4> <hr> </label>
             <div class="form-group mb-3">
                 <input type="number" id="carbontoKYC" formControlName="carbontoKYC" 
                 class="form-control" placeholder="Enter Carbon Value" />
             </div>
-            <button class="btn btn-fill btn-success" (click)="update()" type="reset" style="font-family: cursive;" >Update Value</button>
+            <button class="btn btn-fill btn-success" (click)="update()" [disabled]="isDisabled" type="reset" style="font-family: cursive;" >Update Value</button>
         </form>
     </div>
 </div>

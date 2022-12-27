@@ -36,7 +36,8 @@ export class GarbageComponent implements OnInit{
   transferKYCModel:TransferKYC[]=[];
   sHA256s:SHA256;
   buyerCustomer:Customer;
-  
+  isDisabled=false;
+
   constructor(private garbageService: GarbageService,
     private toastrService:ToastrService,
     private cartService:CartService,
@@ -134,6 +135,7 @@ export class GarbageComponent implements OnInit{
     if (this.person.carbon===0) {
       this.toastrService.error("Your carbon is zero. You cannot convert")
     } else {
+      this.isDisabled=true;
       this.updateKyc();
       
     }
@@ -196,6 +198,7 @@ export class GarbageComponent implements OnInit{
           }
           else
           {
+            this.isDisabled=true;
             this.updateKYCTransfer(transferKYCModel.transferKYCValue);
           
             this.getByAdress(transferKYCModel.adress)
